@@ -39,8 +39,8 @@ ruleset=🐟 漏网之鱼,[]FINAL
 
 custom_proxy_group=🚀 节点选择`select`[]DIRECT`[]🇭🇰 香港均衡`[]🇭🇰 香港自动`[]🇹🇼 台湾均衡`[]🇹🇼 台湾自动`[]🇯🇵 日本均衡`[]🇯🇵 日本自动`[]🇰🇷 韩国均衡`[]🇰🇷 韩国自动`[]🇸🇬 新加坡均衡`[]🇸🇬 新加坡自动`[]🇵🇱 波兰均衡`[]🇵🇱 波兰自动`[]🇺🇸 北美均衡`[]🇺🇸 北美自动`.*
 #custom_proxy_group=♻️ 自动选择`url-test`.*`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🎯 全球直连`select`[]DIRECT`[]🚀 节点选择`[]🇭🇰 香港均衡`[]🇭🇰 香港自动`[]🇹🇼 台湾均衡`[]🇹🇼 台湾自动`[]🇯🇵 日本均衡`[]🇯🇵 日本自动`[]🇰🇷 韩国均衡`[]🇰🇷 韩国自动`[]🇸🇬 新加坡均衡`[]🇸🇬 新加坡自动`[]🇵🇱 波兰均衡`[]🇵🇱 波兰自动`[]🇺🇸 北美均衡`[]🇺🇸 北美自动`.
-custom_proxy_group=🐟 漏网之鱼`select`[]DIRECT`[]🚀 节点选择`[]🎯 全球直连`.
+custom_proxy_group=🎯 全球直连`select`[]DIRECT`[]🚀 节点选择`[]🇭🇰 香港均衡`[]🇭🇰 香港自动`[]🇹🇼 台湾均衡`[]🇹🇼 台湾自动`[]🇯🇵 日本均衡`[]🇯🇵 日本自动`[]🇰🇷 韩国均衡`[]🇰🇷 韩国自动`[]🇸🇬 新加坡均衡`[]🇸🇬 新加坡自动`[]🇵🇱 波兰均衡`[]🇵🇱 波兰自动`[]🇺🇸 北美均衡`[]🇺🇸 北美自动
+custom_proxy_group=🐟 漏网之鱼`select`[]DIRECT`[]🚀 节点选择`[]🎯 全球直连
 custom_proxy_group=🇭🇰 香港均衡`load-balance`(香港|HK|hk)`http://www.gstatic.com/generate_204`120,,100
 custom_proxy_group=🇭🇰 香港自动`url-test`(香港|HK|hk)`http://www.gstatic.com/generate_204`120,,100
 custom_proxy_group=🇹🇼 台湾均衡`load-balance`(台湾|TW|tw)`http://www.gstatic.com/generate_204`120,,100
