@@ -9,16 +9,16 @@
 ;增强中国IP段：不支持
 ;增强国外GFW：不支持
 
-ruleset=🎯 全球直连,clash-classic:https://raw.githubusercontent.com/dahuzi0808/AAAA/main/zycn.yaml
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/dahuzi0808/AAAA/main/zycn.list
 ruleset=🎯 全球直连,clash-classic:https://raw.githubusercontent.com/dler-io/Rules/refs/heads/main/Clash/Provider/Special.yaml
 ruleset=🎯 全球直连,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/UnBan.yaml
 ruleset=🎯 全球直连,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/LocalAreaNetwork.yaml
 ruleset=🎯 全球直连,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/GoogleCN.yaml
 ruleset=🎯 全球直连,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/SteamCN.yaml
 ruleset=🤖 github,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Github.yaml
-ruleset=🇭🇰 香港均衡,clash-classic:https://raw.githubusercontent.com/dahuzi0808/AAAA/refs/heads/main/GoHk.yaml
+ruleset=🇭🇰 香港均衡,https://raw.githubusercontent.com/dahuzi0808/AAAA/refs/heads/main/GoHk.list
 ruleset=🎮 STEAM,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Steam.yaml
-ruleset=📢 自用,clash-classic:https://raw.githubusercontent.com/dahuzi0808/AAAA/main/ziyong.yaml
+ruleset=📢 自用,https://raw.githubusercontent.com/dahuzi0808/AAAA/main/ziyong.list
 ruleset=🍀 Google,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
 ruleset=📹 YouTube,clash-classic:https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/YouTube.yaml
 ruleset=Ⓜ️ BING,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml
