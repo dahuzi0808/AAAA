@@ -1,7 +1,7 @@
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
   ProviderAirPort:
-    url: "订阅链接"
+    url: "http://192.168.100.1:3001/CKg2abstVnOeRpm1aB4G/download/collection/LX-CLASH"
     type: http
     interval: 86400
     health-check:
