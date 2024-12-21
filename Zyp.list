@@ -1,6 +1,7 @@
 #自用代理
 DOMAIN-KEYWORD,javdb521
 DOMAIN-KEYWORD,qichiyu
+DOMAIN-SUFFIX，qichiyu.com
 DOMAIN-KEYWORD,hsreplay
 DOMAIN-KEYWORD,cloudflare
 DOMAIN-KEYWORD,moxing
@@ -18,7 +19,6 @@ DOMAIN-KEYWORD,boylove
 DOMAIN-KEYWORD,cunhua
 DOMAIN-KEYWORD,ikuuu
 DOMAIN-SUFFIX,googleapis.cn
-DOMAIN-KEYWORD,javdb521
 DOMAIN-KEYWORD,hsreplay
 
 
