@@ -1,7 +1,7 @@
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
   ProviderAirPort:
-    url: "http://192.168.100.1:3001/CKg2abstVnOeRpm1aB4G/download/collection/LX-CLASH"
+    url: "订阅链接"
     type: http
     interval: 86400
     health-check:
@@ -90,76 +90,60 @@ dns:
 
 proxy-groups:
 
-  - name: 🚀 节点选择
+  - name: 默认
     type: select
-    proxies: [直连,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,]
+    proxies: [自动选择,香港,台湾,日本,新加坡,美国,全部节点,直连]
 
-  - name: 🤖 自用
+  - name: Google
     type: select
-    proxies: [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
 
-  - name: 🌍 国外媒体
+  - name: Telegram
     type: select
-    proxies: [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
 
-  - name: 🤖 github
+  - name: Twitter
     type: select
-    proxies: [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
 
-  - name: 📲 电报信息
+  - name: YouTube
     type: select
-    proxies: [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
 
-  - name: Ⓜ️ BING
+  - name: Github
     type: select
-    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    proxies:  [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
 
-  - name: Ⓜ️ 微软服务
+  - name: OpenAI
     type: select
-    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    proxies:  [默认,台湾,日本,新加坡,美国]
 
-  - name: 🍀 Google
+  - name: Microsoft
     type: select
-    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    proxies:  [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
 
-  - name: 🎵 TikTok
+  - name: 国内
     type: select
-    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择]
 
-  - name: 📹 YouTube
+  - name: 其他
     type: select
-    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    proxies:  [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
 
-  - name: 🎮 STEAM
-    type: select
-    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
-  - name: 🍎 苹果服务
-    type: select
-    proxies:  [直连,🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡]
-
-  - name: 🎯 全球直连
-    type: select
-    proxies:  [直连,🚀 节点选择]
-  
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies:  [直连,🎯 全球直连]
-              
-    
   #分隔,下面是地区分组
-  - name: 🇭🇰 香港均衡
-    type: load-balance
+  - name: 香港
+    type: url-test
     use:
       - ProviderAirPort
-    filter: "(?i)港|香港|hk|hongkong|hong kong"
+    filter: "(?i)港|hk|hongkong|hong kong"
     url: 'http://www.apple.com/library/test/success.html'
     interval: 300
     tolerance: 50
     #lazy: true
           
-  - name: 🇹🇼 台湾均衡
-    type: load-balance
+  - name: 台湾
+    type: url-test
     use:
       - ProviderAirPort
     filter: "(?i)台|tw|taiwan"
@@ -168,8 +152,8 @@ proxy-groups:
     tolerance: 50
     #lazy: true    
 
-  - name: 🇯🇵 日本均衡
-    type: load-balance
+  - name: 日本
+    type: url-test
     use:
       - ProviderAirPort
     filter: "(?i)日本|jp|japan"
@@ -178,28 +162,18 @@ proxy-groups:
     tolerance: 50
     #lazy: true    
 
-  - name: 🇰🇷 韩国均衡
-    type: load-balance
+  - name: 美国
+    type: url-test
     use:
       - ProviderAirPort
-    filter: "(?i)韩国|KR|kr"
-    url: 'http://www.apple.com/library/test/success.html'
-    interval: 300
-    tolerance: 50
-    #lazy: true    
-    
-  - name: 🇸🇬 新加坡均衡
-    type: load-balance
-    use:
-      - ProviderAirPort
-    filter: "(?i)新加坡|SG|sg"
+    filter: "(?i)美|us|unitedstates|united states"
     url: 'http://www.apple.com/library/test/success.html'
     interval: 300
     tolerance: 50
     #lazy: true    
 
-  - name: 🇺🇸 北美均衡
-    type: load-balance
+  - name: 新加坡
+    type: url-test
     use:
       - ProviderAirPort
     filter: "(?i)(新|sg|singapore)"
@@ -207,6 +181,18 @@ proxy-groups:
     interval: 300
     tolerance: 50
     #lazy: true    
+
+  - name: 全部节点
+    type: select
+    include-all: true
+
+  - name: 自动选择
+    type: url-test
+    include-all: true
+    exclude-type: "direct"
+    url: 'http://www.apple.com/library/test/success.html'
+    interval: 300
+    tolerance: 10
 
 rule-providers:
   private_domain:
