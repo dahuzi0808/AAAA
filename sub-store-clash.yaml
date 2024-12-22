@@ -97,6 +97,10 @@ proxy-groups:
   - name: 🈶 自用
     type: select
     proxies: [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    
+  - name: Steam
+    type: select
+    proxies: [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连] 
 
   - name: Google
     type: select
@@ -338,11 +342,24 @@ rule-providers:
     behavior: domain
     format: text
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bing.list"
-    
+  steam_domain:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Steam.list"
+   SteamCN_domain:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/SteamCN.list" 
 rules:
   - RULE-SET,private_ip,直连,no-resolve
   - RULE-SET,ZycnS_domain,直连
   - RULE-SET,ZypS_domain,🈶 自用
+  - RULE-SET,Steam_domain,Steam
+  - RULE-SET,SteamCN_domain,🎯 全球直连
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
   - RULE-SET,youtube_domain,YouTube
@@ -352,8 +369,8 @@ rules:
   - RULE-SET,openai_domain,OpenAI
   - RULE-SET,microsoft_domain,Microsoft
   - RULE-SET,bing_domain,Bing
-  - RULE-SET,geolocation-!cn,其他
-  - RULE-SET,gfw_domain,其他  
+  - RULE-SET,geolocation-!cn,🌍 国外小众
+  - RULE-SET,gfw_domain,🌍 国外小众  
 
   - RULE-SET,google_ip,Google
   - RULE-SET,telegram_ip,Telegram
@@ -368,7 +385,7 @@ rules:
   - GEOSITE,google,Google
   - GEOSITE,telegram,Telegram
   - GEOSITE,CN,🎯 全球直连
-  - GEOSITE,geolocation-!cn,其他
+  - GEOSITE,geolocation-!cn,🌍 国外小众
 
   - GEOIP,google,Google
   - GEOIP,telegram,Telegram
