@@ -132,27 +132,27 @@ proxy-groups:
 
 
   #分隔,下面是地区分组
-  - name: 香港
+  - name: 🇭🇰 香港均衡
     type: url-test
     use:
       - ProviderAirPort
-    filter: "(?i)港|hk|hongkong|hong kong"
+    filter: "(?i)港|香港|hk|hongkong|hong kong"
     url: 'http://www.apple.com/library/test/success.html'
     interval: 300
     tolerance: 50
     #lazy: true
           
-  - name: 台湾
+  - name: 🇹🇼 台湾均衡
     type: url-test
     use:
       - ProviderAirPort
-    filter: "(?i)台|tw|taiwan"
+    filter: "(?i)台|台湾|tw|taiwan"
     url: 'http://www.apple.com/library/test/success.html'
     interval: 300
     tolerance: 50
     #lazy: true    
 
-  - name: 日本
+  - name: 🇯🇵 日本均衡
     type: url-test
     use:
       - ProviderAirPort
@@ -161,26 +161,36 @@ proxy-groups:
     interval: 300
     tolerance: 50
     #lazy: true    
-
-  - name: 美国
+    
+  - name: 🇰🇷 韩国均衡
     type: url-test
     use:
       - ProviderAirPort
-    filter: "(?i)美|us|unitedstates|united states"
+    filter: "(?i)韩国|KR|kr|Korea"
+    url: 'http://www.apple.com/library/test/success.html'
+    interval: 300
+    tolerance: 50
+    #lazy: true  
+    
+  - name: 🇸🇬 新加坡均衡
+    type: url-test
+    use:
+      - ProviderAirPort
+    filter: "(?i)(新|新加坡|sg|singapore)"
     url: 'http://www.apple.com/library/test/success.html'
     interval: 300
     tolerance: 50
     #lazy: true    
 
-  - name: 新加坡
+  - name: 🇺🇸 北美均衡
     type: url-test
     use:
       - ProviderAirPort
-    filter: "(?i)(新|sg|singapore)"
+    filter: "(?i)美|加拿大|ca|us|unitedstates|united states"
     url: 'http://www.apple.com/library/test/success.html'
     interval: 300
     tolerance: 50
-    #lazy: true    
+    #lazy: true      
 
   - name: 全部节点
     type: select
