@@ -90,45 +90,57 @@ dns:
 
 proxy-groups:
 
-  - name: 默认
+  - name: 🚀 节点选择
     type: select
-    proxies: [自动选择,香港,台湾,日本,新加坡,美国,全部节点,直连]
+    proxies: [直连,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,自动选择,全部节点]
+    
+  - name: 🈶 自用
+    type: select
+    proxies: [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
   - name: Google
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies: [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
   - name: Telegram
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies: [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
   - name: Twitter
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies: [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
   - name: YouTube
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies: [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
   - name: Github
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies:  [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
   - name: OpenAI
     type: select
-    proxies:  [默认,台湾,日本,新加坡,美国]
+    proxies:  [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
   - name: Microsoft
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
-
-  - name: 国内
+    proxies:  [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+    
+  - name: Bing
     type: select
-    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择]
+    proxies:  [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]    
 
-  - name: 其他
+  - name: 🌍 国外小众
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies:  [🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
+
+  - name: 🎯 全球直连
+    type: select
+    proxies:  [🚀 节点选择,直连]
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:  [🎯 全球直连,🚀 节点选择,直连]
 
 
   #分隔,下面是地区分组
@@ -308,25 +320,46 @@ rule-providers:
     behavior: ipcidr 
     format: text
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.list"
-
+  ZycnS_domain:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: "https://raw.githubusercontent.com/dahuzi0808/AAAA/refs/heads/main/ZycnS.list"         
+  ZypS_domain:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: "https://raw.githubusercontent.com/dahuzi0808/AAAA/refs/heads/main/ZypS.list"         
+  bing_domain:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bing.list"
+    
 rules:
   - RULE-SET,private_ip,直连,no-resolve
+  - RULE-SET,ZycnS_domain,直连
+  - RULE-SET,ZypS_domain,🈶 自用
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
   - RULE-SET,youtube_domain,YouTube
   - RULE-SET,google_domain,Google
   - RULE-SET,telegram_domain,Telegram
-  - RULE-SET,cn_domain,国内
+  - RULE-SET,cn_domain,🎯 全球直连
   - RULE-SET,openai_domain,OpenAI
   - RULE-SET,microsoft_domain,Microsoft
+  - RULE-SET,bing_domain,Bing
   - RULE-SET,geolocation-!cn,其他
   - RULE-SET,gfw_domain,其他  
 
   - RULE-SET,google_ip,Google
   - RULE-SET,telegram_ip,Telegram
   - RULE-SET,twitter_ip,Twitter
-  - RULE-SET,cn_ip,国内
-  - MATCH,其他
+  - RULE-SET,cn_ip,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
 
   - GEOIP,lan,直连,no-resolve
   - GEOSITE,github,Github
@@ -334,10 +367,10 @@ rules:
   - GEOSITE,youtube,YouTube
   - GEOSITE,google,Google
   - GEOSITE,telegram,Telegram
-  - GEOSITE,CN,国内
+  - GEOSITE,CN,🎯 全球直连
   - GEOSITE,geolocation-!cn,其他
 
   - GEOIP,google,Google
   - GEOIP,telegram,Telegram
   - GEOIP,twitter,Twitter
-  - GEOIP,CN,国内
+  - GEOIP,CN,🎯 全球直连
