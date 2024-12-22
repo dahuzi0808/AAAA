@@ -8,62 +8,158 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
+    
+proxies: 
+  - name: "直连"
+    type: direct
+
+mixed-port: 7890
+ipv6: false
+allow-lan: true
+unified-delay: false
+tcp-concurrent: true
+external-controller: 127.0.0.1:9090
+external-ui: ui
+external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+keep-alive-interval: 1800
+
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: false
+geo-update-interval: 24
+geox-url:
+  geoip: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
+  geosite: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/Country.mmdb"
+  asn: "https://mirror.ghproxy.com/https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
+
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+    - "any:53"
+    - "tcp://any:53"
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+
+dns:
+  enable: true
+  ipv6: false
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
+    - "+.market.xiaomi.com"
+  nameserver:
+    - https://120.53.53.53/dns-query
+    - https://223.5.5.5/dns-query
+  proxy-server-nameserver:
+    - https://120.53.53.53/dns-query
+    - https://223.5.5.5/dns-query
+  nameserver-policy:
+    "rule-set:cn_domain,private_domain":
+      - https://120.53.53.53/dns-query
+      - https://223.5.5.5/dns-query
+    "rule-set:geolocation-!cn":
+      - "https://dns.cloudflare.com/dns-query"
+      - "https://dns.google/dns-query"
+
 proxy-groups:
 
-  - name: 默认
+  - name: 🚀 节点选择
     type: select
-    proxies: [自动选择,香港,台湾,日本,新加坡,美国,全部节点,直连]
+    proxies: [直连,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,]
 
-  - name: Google
+  - name: 🤖 自用
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies: [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
-  - name: Telegram
+  - name: 🌍 国外媒体
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies: [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
-  - name: Twitter
+  - name: 🤖 github
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies: [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
-  - name: YouTube
+  - name: 📲 电报信息
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies: [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
-  - name: Github
+  - name: Ⓜ️ BING
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
-  - name: OpenAI
+  - name: Ⓜ️ 微软服务
     type: select
-    proxies:  [默认,台湾,日本,新加坡,美国]
+    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
-  - name: Microsoft
+  - name: 🍀 Google
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
-  - name: 国内
+  - name: 🎵 TikTok
     type: select
-    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择]
+    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
-  - name: 其他
+  - name: 📹 YouTube
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,全部节点,自动选择,直连]
+    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
+  - name: 🎮 STEAM
+    type: select
+    proxies:  [🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡,直连]
 
+  - name: 🍎 苹果服务
+    type: select
+    proxies:  [直连,🚀 节点选择,🇭🇰 香港均衡,🇹🇼 台湾均衡,🇯🇵 日本均衡,🇰🇷 韩国均衡,🇸🇬 新加坡均衡,🇺🇸 北美均衡]
+
+  - name: 🎯 全球直连
+    type: select
+    proxies:  [直连,🚀 节点选择]
+  
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:  [直连,🎯 全球直连]
+              
+    
   #分隔,下面是地区分组
-  - name: 香港
-    type: url-test
+  - name: 🇭🇰 香港均衡
+    type: load-balance
     use:
       - ProviderAirPort
-    filter: "(?i)港|hk|hongkong|hong kong"
+    filter: "(?i)港|香港|hk|hongkong|hong kong"
     url: 'http://www.apple.com/library/test/success.html'
     interval: 300
     tolerance: 50
     #lazy: true
           
-  - name: 台湾
-    type: url-test
+  - name: 🇹🇼 台湾均衡
+    type: load-balance
     use:
       - ProviderAirPort
     filter: "(?i)台|tw|taiwan"
@@ -72,8 +168,8 @@ proxy-groups:
     tolerance: 50
     #lazy: true    
 
-  - name: 日本
-    type: url-test
+  - name: 🇯🇵 日本均衡
+    type: load-balance
     use:
       - ProviderAirPort
     filter: "(?i)日本|jp|japan"
@@ -82,18 +178,28 @@ proxy-groups:
     tolerance: 50
     #lazy: true    
 
-  - name: 美国
-    type: url-test
+  - name: 🇰🇷 韩国均衡
+    type: load-balance
     use:
       - ProviderAirPort
-    filter: "(?i)美|us|unitedstates|united states"
+    filter: "(?i)韩国|KR|kr"
+    url: 'http://www.apple.com/library/test/success.html'
+    interval: 300
+    tolerance: 50
+    #lazy: true    
+    
+  - name: 🇸🇬 新加坡均衡
+    type: load-balance
+    use:
+      - ProviderAirPort
+    filter: "(?i)新加坡|SG|sg"
     url: 'http://www.apple.com/library/test/success.html'
     interval: 300
     tolerance: 50
     #lazy: true    
 
-  - name: 新加坡
-    type: url-test
+  - name: 🇺🇸 北美均衡
+    type: load-balance
     use:
       - ProviderAirPort
     filter: "(?i)(新|sg|singapore)"
@@ -101,18 +207,6 @@ proxy-groups:
     interval: 300
     tolerance: 50
     #lazy: true    
-
-  - name: 全部节点
-    type: select
-    include-all: true
-
-  - name: 自动选择
-    type: url-test
-    include-all: true
-    exclude-type: "direct"
-    url: 'http://www.apple.com/library/test/success.html'
-    interval: 300
-    tolerance: 10
 
 rule-providers:
   private_domain:
