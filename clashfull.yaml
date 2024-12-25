@@ -124,10 +124,10 @@ proxies:
   udp: true
  
 # 锚点
-pr: &pr {type: select, proxies: [🚀 节点选择,  🇭🇰 香港自动, 🇹🇼 台湾自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇺🇸 北美自动, 🌐 全部节点, 🟢 直连]}
+pr: &pr {type: select, proxies: [🚀 节点选择,  🇭🇰 香港自动, 🇹🇼 台湾自动, 🇯🇵 日本自动, 🇸🇬 新加坡自动, 🇺🇸 北美自动, 🌐 全部节点, 🟢 直连]}
 # 策略组
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港自动, 🇹🇼 台湾自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇺🇸 北美自动, 🌐 全部节点, 🟢 直连]}
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港自动, 🇹🇼 台湾自动, 🇯🇵 日本自动,  🇸🇬 新加坡自动, 🇺🇸 北美自动, 🌐 全部节点, 🟢 直连]}
   - {name: 🔯 自用,!!merge <<: *pr}
   - {name: 📹 YouTube,!!merge <<: *pr}
   - {name: 🍀 Google,!!merge <<: *pr}
@@ -147,7 +147,6 @@ proxy-groups:
   - {name: 🇭🇰 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
   - {name: 🇹🇼 台湾自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(台|台湾|(?i)Tai))^((?!(港|日|韩|新|深|美)).)*$"}
   - {name: 🇯🇵 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
-  - {name: 🇰🇷 韩国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(韩|韩国|Korea))^((?!(港|台|新|日|美)).)*$" }
   - {name: 🇸🇬 新加坡自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新|新加坡|Singapore))^((?!(港|台|韩|日|美)).)*$" }
   - {name: 🇺🇸 北美自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
   - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
