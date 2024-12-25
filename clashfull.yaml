@@ -9,11 +9,6 @@ proxy-providers:
       interval: 300
     proxy: 🟢 直连
     url: "机场订阅"
-    override:
-      skip-cert-verify: true
-      udp: true
-      down: "50 Mbps"
-      up: "10 Mbps"
     
       
 # 用于下载订阅时指定UA
