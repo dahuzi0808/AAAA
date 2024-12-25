@@ -148,7 +148,7 @@ proxy-groups:
   - {name: 🌐 全部节点, type: select, include-all: true}
 rules:
   - RULE-SET,private_domain,🟢 直连
-  - RULE-SET,ycnS_qcy,🟢 直连
+  - RULE-SET,ZycnS_qcy,🟢 直连
   - RULE-SET,GameDownloadCN,🟢 直连
   - RULE-SET,SteamCN,🟢 直连
   - RULE-SET,ZypS_qcy,🔯 自用
