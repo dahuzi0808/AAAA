@@ -8,8 +8,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: 🟢 直连
-    url: "机场订阅"
-    
+    url: "机场链接"
       
 # 用于下载订阅时指定UA
 global-ua: clash
@@ -100,14 +99,15 @@ dns:
     - geosite:private
     - geosite:cn
   default-nameserver:
-    - 127.0.0.1:53532
+    - https://120.53.53.53/dns-query
+    - https://223.5.5.5/dns-query
   proxy-server-nameserver:
-    - 127.0.0.1:53532
-  nameserver:
-    - 127.0.0.1:53532
+    - https://120.53.53.53/dns-query
+    - https://223.5.5.5/dns-query
   nameserver-policy:
     "rule-set:private_domain,cn_domain":
-    - 127.0.0.1:53532
+    - https://120.53.53.53/dns-query
+    - https://223.5.5.5/dns-query
     "rule-set:geolocation-!cn":
       - "https://dns.cloudflare.com/dns-query"
       - "https://dns.google/dns-query"
@@ -138,7 +138,7 @@ proxy-groups:
   - {name: 💶 PayPal,!!merge <<: *pr}
   - {name: 🍎 Apple, type: select, proxies: [🟢 直连, 🚀 节点选择]}
   - {name: 🎯 全球直连, type: select, proxies: [🟢 直连, 🚀 节点选择]}
-  - {name: 🐟 漏网之鱼,!!merge <<: *pr}
+  - {name: 🐟 漏网之鱼,type: select, proxies: [🟢 直连, 🎯 全球直连]}
   - {name: 🇭🇰 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
   - {name: 🇹🇼 台湾自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(台|台湾|(?i)Tai))^((?!(港|日|韩|新|深|美)).)*$"}
   - {name: 🇯🇵 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
