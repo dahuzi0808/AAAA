@@ -19,6 +19,27 @@ proxy-providers:
       down: "50 Mbps"
       up:: "10 Mbps"
       skip-cert-verify: true
+      proxy-providers:
+  Airport2:
+    url: "机场订阅"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+    header:
+      User-Agent:
+      -  "clash"
+      -  "mihomo"
+    override:
+      udp: true
+      down: "50 Mbps"
+      up:: "10 Mbps"
+      skip-cert-verify: true
+
+      
 
 # 节点信息
 proxies:
