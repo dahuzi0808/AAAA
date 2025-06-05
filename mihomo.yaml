@@ -202,7 +202,7 @@ rule-anchor:
 rule-providers: 
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   proxylite: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/proxy.list"}
-  MiZyP: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/MiZyP.list"}
+  MiZyP: { <<: *class, url: "https://raw.githubusercontent.com/dahuzi0808/AAAA/refs/heads/main/ZY/MiZyP.list"}
   Special: { <<: *class, url: "https://raw.githubusercontent.com/dler-io/Rules/refs/heads/main/Surge/Surge%203/Provider/Special.list"}
   ai: {  <<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs" }
   youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
