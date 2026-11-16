@@ -1,115 +1,28 @@
-# 注意规则在满足自己需求情况下，尽量做到精简，不要过度复杂，以免影响性能。
-# 机场订阅
-proxy-providers:
-  free:
-    url: "链接"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连
-    header:
-      User-Agent:
-      -  "clash"
-    override:
-      udp: true
-      down: "50 Mbps"
-      up:: "10 Mbps"
-      skip-cert-verify: true
+ #free:
+    #url: "https://free.datiya.com/uploads/20260120-clash.yaml"  
+    #type: http
+    #interval: 86400
+    #health-check:
+      #enable: true
+      #url: https://www.gstatic.com/generate_204
+      #interval: 300
+    #proxy: 直连
+    #header:
+      #User-Agent:
+      #-  "clash.meta"
 
 
 # 节点信息
 proxies:
   - {name: 直连, type: direct}
 
-# 全局配置 
-port: 7890
-socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-tproxy-port: 7894
-全部ow-lan: true
-bind-address: "*"
-ipv6: false
-unified-delay: true
-tcp-concurrent: true
-log-level: warning
-find-process-mode: 'off'
-# interface-name: en0
-global-client-fingerprint: chrome
-keep-alive-idle: 600
-keep-alive-interval: 15
-disable-keep-alive: false
-profile:
-  store-selected: true
-  store-fake-ip: true
-
-# 控制面板
-external-controller: 0.0.0.0:9095
-secret: ""
-external-ui: "/etc/mihomo/run/ui"
-external-ui-name: zashboard
-external-ui-url: "https://ghproxy.net/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
-
-# 嗅探
-sniffer:
-  enable: true
-  sniff:
-    HTTP:
-      ports: [80, 8080-8880]
-      override-destination: true
-    TLS:
-      ports: [443, 8443]
-    QUIC:
-      ports: [443, 8443]
-  force-domain:
-    - "+.v2ex.com"
-  skip-domain:
-    - "+.baidu.com"
-
-# 入站  
-tun:
-  enable: true
-  # system/gvisor/mixed
-  stack: mixed
-  dns-hijack: ["any:53", "tcp://any:53"]
-  auto-route: true
-  auto-redirect: true
-  auto-detect-interface: true
-
-# DNS模块
-dns:
-  enable: true
-  listen: 0.0.0.0:1053
-  ipv6: false
-  respect-rules: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 28.0.0.1/8
-  fake-ip-filter-mode: blacklist
-  fake-ip-filter:
-    - "rule-set:private_domain,cn_domain"
-    - "+.services.googleapis.cn"
-    - "+.msftconnecttest.com"
-    - "+.msftncsi.com"
-    - "time.*.com"
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  proxy-server-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  # namesever尽量用运营商提供的DNS
-  nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
  
 # 出站策略
 # 注意锚点必须放在引用的上方，可以集中把锚点全部放yaml的顶部。
-pr: &pr {type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🚀 爪云节点, 🇮🇳 印度节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇹🇼 台湾节点, 🇰🇷 韩国节点, 🇺🇸 美国节点, 🇨🇦 加拿大节点, 直连]}
+pr: &pr {type: select, proxies: [🚀 默认代理,🌐 CF节点, 🇭🇰 香港节点,  🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇹🇼 台湾节点, 🇰🇷 韩国节点, 🇺🇸 美国节点, 🇨🇦 加拿大节点, 直连]}
 proxy-groups:
-  - {name: 🚀 默认代理, type: select, proxies: [🇭🇰 香港节点, 🚀 爪云节点, 🇮🇳 印度节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇹🇼 台湾节点, 🇰🇷 韩国节点, 🇺🇸 美国节点, 🇨🇦 加拿大节点, ♻️ 自动选择, 直连, 🌐 全部节点]}
+ # 业务分流组
+  - {name: 🚀 默认代理, type: select, proxies: [🇭🇰 香港节点,  🌐 CF节点,🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇹🇼 台湾节点, 🇰🇷 韩国节点, 🇺🇸 美国节点, 🇨🇦 加拿大节点, ♻️ 自动选择, 直连, 🌐 全部节点]}
   - {name: 📹 YouTube, <<: *pr}
   - {name: 🎮 STEAM, <<: *pr}
   - {name: 🍀 Google, <<: *pr}
@@ -119,24 +32,53 @@ proxy-groups:
   - {name: 🎵 TikTok, <<: *pr}
   - {name: 📲 Telegram, <<: *pr}
   - {name: 🎥 NETFLIX, <<: *pr}
+  - {name: 🇯🇵 JAV, <<: *pr}
   - {name: ✈️ Speedtest, type: select, proxies: [直连, 🚀 默认代理]}
   - {name: 💶 PayPal, type: select, proxies: [直连, 🚀 默认代理]}
   - {name: 🐬 OneDrive, type: select, proxies: [直连, 🚀 默认代理]}
   - {name: 🪟 Microsoft, type: select, proxies: [直连, 🚀 默认代理]}
   - {name: 🍎 Apple, type: select, proxies: [直连, 🚀 默认代理]}
-  - {name: 🎯 直连, type: select, proxies: [直连, 🚀 默认代理]}
   - {name: 🐟 漏网之鱼, type: select, proxies: [直连, 🚀 默认代理]}
+  
+ # 所有组 
   - {name: 🇭🇰 香港节点, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)香港|HK|hk"}
-  - {name: 🚀 爪云节点, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)爪云|ZY|zy"}
-  - {name: 🇮🇳 印度节点, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)印度hy2|🇮🇳hy2"}
-  - {name: 🇯🇵 日本节点, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)日本|JP|🇯🇵"}
+  - {name: 🇯🇵 日本节点, type: select, include-all: true, filter: "(?i)日本|JP|🇯🇵"}
   - {name: 🇸🇬 新加坡节点, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)新加坡|SG|🇸🇬"}
   - {name: 🇹🇼 台湾节点, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)台湾|TW|🇹🇼"}
   - {name: 🇰🇷 韩国节点, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)韩国|KR|🇰🇷"}
   - {name: 🇺🇸 美国节点, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)美国|US|🇺🇸"}
+  - {name: 🌐 CF节点, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(优选|LAX))^((?!(直连)).)*$"}
   - {name: 🇨🇦 加拿大节点, type: select, include-all: true, filter: "(?i)加拿大|CA|🇨🇦"}
   - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
   - {name: 🌐 全部节点, type: select, include-all: true}
+  #- name: 🇯🇵 日本智选
+    #type: smart
+    #include-all: true
+    #policy-priority: ".*牛逼.*:0.8"
+    #uselightgbm: true
+    #collectdata: true
+    #health-check: 
+      #enable: true
+      #url: https://www.gstatic.com/generate_204
+      #interval: 60
+      #tolerance: 2
+    #strategy: sticky-sessions
+    #interval: 180
+    #filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
+  #- name: 🇺🇸 美国智选
+    #type: smart
+    #include-all: true
+    #policy-priority: ".*牛逼.*:0.8"
+    #uselightgbm: true
+    #collectdata: true
+    #health-check: 
+      #enable: true
+      #url: https://www.gstatic.com/generate_204
+      #interval: 60
+      #tolerance: 2
+    #strategy: sticky-sessions
+    #interval: 180
+    #filter: "(?=.*(美|美国|us|usa|联通|爪云|🇺🇸|usa|USA))^((?!(韩国|新加坡|香港|80)).)*$"
 
   #- {name: 🇺🇸 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)美国|US|🇺🇸"}
   #- {name: 🇭🇰 香港故转, type: select, include-all: true, filter: "(?i)香港|HK|hk"} 
@@ -146,15 +88,27 @@ proxy-groups:
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
 rules:
   - DOMAIN-SUFFIX,qichiyu.com,🚀 默认代理
+  - DOMAIN-SUFFIX, poeoverlay.com,🚀 默认代理
+  - DOMAIN-SUFFIX,v00.ai,🚀 默认代理
+  - DOMAIN-SUFFIX,dzmm.ai,🚀 默认代理
+  - DOMAIN-SUFFIX,vsoul.ai,🚀 默认代理
+  - DOMAIN-SUFFIX,3me.fun,🚀 默认代理
+  - DOMAIN-SUFFIX,shareflai.com,🚀 默认代理
   - DOMAIN-SUFFIX,claw.cloud,🚀 默认代理
-  - DOMAIN-SUFFIX,laowang.vip,🚀 默认代理
-  - DOMAIN-SUFFIX,sxsy19.com,🚀 默认代理
-  - RULE-SET,private_domain,直连
-  - RULE-SET,Special,直连
+  - DOMAIN-SUFFIX,poe.show,🚀 默认代理
+  - DOMAIN-SUFFIX,poedb.tw,🚀 默认代理
+  - DOMAIN-SUFFIX,poe2db.tw,🚀 默认代理
+  - DOMAIN-SUFFIX,f95zone.to,🚀 默认代理
+  - RULE-SET,private_domain,DIRECT
+  - RULE-SET,Special,DIRECT
   - RULE-SET,MiZyP,🚀 默认代理
-  - RULE-SET,steam@cn.mrs_domain,直连
-  - RULE-SET,category-game-platforms-download.mrs_domain,直连
-  - RULE-SET,steam_domain,🎮 STEAM
+  - RULE-SET,ZyCn,DIRECT
+#  - RULE-SET,steam@cn.mrs_domain,DIRECT
+  - RULE-SET,steam@cn,DIRECT
+  - RULE-SET,category-game-platforms-download.mrs_domain,DIRECT
+  - RULE-SET,steam,🎮 STEAM
+  - RULE-SET,JAV,🇯🇵 JAV
+ # - RULE-SET,steam_domain,🎮 STEAM
   - RULE-SET,apple_domain,🍎 Apple
   - RULE-SET,proxylite,🚀 默认代理
   - RULE-SET,ai,🤖 ChatGPT
@@ -171,11 +125,11 @@ rules:
   - RULE-SET,paypal_domain,💶 PayPal
   - RULE-SET,gfw_domain,🚀 默认代理
   - RULE-SET,geolocation-!cn,🚀 默认代理
-  - RULE-SET,cn_domain,🎯 直连
+  - RULE-SET,cn_domain,DIRECT
   - RULE-SET,google_ip,🍀 Google,no-resolve
   - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
   - RULE-SET,telegram_ip,📲 Telegram,no-resolve
-  - RULE-SET,cn_ip,🎯 直连
+  - RULE-SET,cn_ip,DIRECT
   - MATCH,🐟 漏网之鱼
 
 # 规则集
@@ -185,13 +139,17 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers: 
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-  proxylite: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/proxy.list"}
+  proxylite: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/proxy.list"}
   Special: { <<: *class, url: "https://raw.githubusercontent.com/dler-io/Rules/refs/heads/main/Surge/Surge%203/Provider/Special.list"}
   MiZyP: { <<: *class, url: "https://raw.githubusercontent.com/dahuzi0808/AAAA/refs/heads/main/ZY/MiZyP.list"}
+  ZyCn: { <<: *class, url: "https://raw.githubusercontent.com/dahuzi0808/AAAA/refs/heads/main/ZY/ZyCn.list"}
   ai: {  <<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs" }
   youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
+  steam: { <<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Steam/Steam.list"}
+  JAV: { <<: *class, url: "https://raw.githubusercontent.com/dahuzi0808/AAAA/refs/heads/main/ZY/jav.list"}
   steam_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.mrs"}
   steam@cn.mrs_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam@cn.mrs"}
+  steam@cn: { <<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/SteamCN/SteamCN.list"}
   category-game-platforms-download.mrs_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-game-platforms-download.mrs"}
   google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
@@ -207,7 +165,6 @@ rule-providers:
   gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
   geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
   cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
-  
   cn_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   google_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
   telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
