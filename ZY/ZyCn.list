@@ -12,6 +12,7 @@ DOMAIN-SUFFIX,download1.akamaized.net
 DOMAIN-SUFFIX,battle.net
 DOMAIN-SUFFIX,jsdelivr.net
 DOMAIN-SUFFIX,blizzard.com
-DOMAIN,dl-a10b-1196.mypikpak.com,DIRECT
-DOMAIN-SUFFIX,freecloud.ltd,DIRECT
+DOMAIN,dl-a10b-1196.mypikpak.com
+DOMAIN-SUFFIX,freecloud.ltd
+DOMAIN-SUFFIX,710421059.xyz
 
